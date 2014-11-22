@@ -1,0 +1,19 @@
+web:
+    build: ./buildfiles/wordpress
+    links:
+        - db:mysql
+    ports:
+        - "80:80"
+    volumes_from:
+        - file
+db:
+    image: mysql:latest
+    volumes_from:
+        - file
+    environment:
+        MYSQL_ROOT_PASSWORD: mysecretpassword
+file:
+    image: busybox:latest
+    volumes:
+        - ./code/:/var/www/html
+        - /var/www/mysql
