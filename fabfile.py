@@ -176,12 +176,13 @@ def commit():
 
     local("git add -p && git commit -a")
 
+@task
 def start():
     '''
     Starts containers in local or production
     '''
     _execute("fig up -d")
-
+@task
 def stop():
     '''
     Stops containers in local or production
