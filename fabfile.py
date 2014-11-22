@@ -233,7 +233,7 @@ def is_available(package):
             return True
 
 def _execute(command):
-    if env.local is 'local':
+    if env.destination is 'local':
         local("sudo %s" % command)
     else:
     ## This is only used when we have root access to remote server. So it's alright
